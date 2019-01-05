@@ -54,7 +54,7 @@ In your project (*.csproj* file) make the following change.
 ```xml
 <ItemGroup>
   <TrimFilesRootFiles Include="System.IO.Pipes.dll" />
-<ItemGroup>
+</ItemGroup>
 ```
 
 - Specify TrimmablePackages to indicate that the `NuGet.Client` package should be considered trimmable and only the files in its closure that are actually used should be included.
@@ -62,7 +62,7 @@ In your project (*.csproj* file) make the following change.
 ```xml
 <ItemGroup>
   <TrimmablePackages Include="NuGet.Client" />
-<ItemGroup>
+</ItemGroup>
 ```
 
 - Specify TrimFilesPreferNativeImages to prefer faster and larger native images if they exist.
@@ -154,7 +154,7 @@ To fix this you can *root* the assembly `'AssemblyName, Culture=culture, PublicK
 ```xml
 <ItemGroup>
   <TrimFilesRootFiles Include="AssemblyName.dll" />
-<ItemGroup>
+</ItemGroup>
 ```
 
 A missing native library may cause the application to fail with an exception like the following:
@@ -169,7 +169,7 @@ To fix this you can *root* the native library `'native.dll'` by adding the follo
 ```xml
 <ItemGroup>
   <TrimFilesRootFiles Include="native.dll" />
-<ItemGroup>
+</ItemGroup>
 ```
 
 **Note:** Just because you see these exceptions doesn't necessarily mean trimming is the root cause.  If you don't see the exception when running the application with trimming disabled then trimming is the likely cause.  If you see the exception when running the application with trimming disabled then the cause could be a missing pre-requisite or an undeclared dependency from some package.
